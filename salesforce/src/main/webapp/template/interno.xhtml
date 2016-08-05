@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<h:outputStylesheet name="grid/grid.css" library="primefaces" />
+
+</h:head>
+<h:body>
+
+<div class="ui-g ui-g-nopad" >
+
+	<div class="ui-g-12 ui-g-nopad">       
+		<ui:include src="/publico/topo.xhtml"/> 
+	</div>
+    <div class="ui-g-12 ui-md-2 ui-g-nopad"  style="background-color: red">
+		<ui:include src="/restrito/menu.xhtml"/> 		
+    </div>
+    
+    <div class="ui-g-12 ui-md-10 ui-g-nopad">
+        <div class="ui-g-12 ui-g-nopad" style="background-color: green">
+          <ui:insert name="barra">
+	        	<ui:include src="/restrito/barra.xhtml"/>  
+	        </ui:insert> 
+        </div>
+        
+        <div class="ui-g-12 ui-g-nopad" style="background-color: gray">
+	        <ui:insert name="corpo">
+	        	Corpo    
+	        </ui:insert>
+        </div>
+    </div>
+    
+    <div class="ui-g-12 ui-g-nopad">       
+		<ui:include src="/publico/rodape.xhtml"/> 
+	</div>
+</div>
+</h:body>
+</html>
