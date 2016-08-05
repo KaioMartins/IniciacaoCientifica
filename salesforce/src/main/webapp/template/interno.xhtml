@@ -7,11 +7,16 @@
 <h:head>
 <title>Sales Force</title>
 <h:outputStylesheet name="grid/grid.css" library="primefaces" />
+<style>
+*{
+	margin:0;
+	padding:0;
+}
 
+</style>
 </h:head>
+<div class="ui-g ui-g-nopad" id="corpo">
 <h:body>
-
-<div class="ui-g ui-g-nopad" >
 
 	<div class="ui-g-12 ui-g-nopad">       
 		<ui:include src="/publico/topo.xhtml"/> 
@@ -37,6 +42,7 @@
     <div class="ui-g-12 ui-g-nopad">       
 		<ui:include src="/publico/rodape.xhtml"/> 
 	</div>
-</div>
+
 </h:body>
+</div>
 </html>
