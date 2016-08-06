@@ -15,34 +15,50 @@
 
 </style>
 </h:head>
-<div class="ui-g ui-g-nopad" id="corpo">
-<h:body>
 
+<h:body>
+<div class="ui-g ui-g-nopad" id="corpo">
+	<!-- Topo -->
 	<div class="ui-g-12 ui-g-nopad">       
 		<ui:include src="/publico/topo.xhtml"/> 
 	</div>
+	<!-- Topo -->
+	
+	<!-- Menu -->
     <div class="ui-g-12 ui-md-2 ui-g-nopad"  style="background-color: red">
 		<ui:include src="/restrito/menu.xhtml"/> 		
     </div>
+    <!-- Menu -->
     
-    <div class="ui-g-12 ui-md-10 ui-g-nopad">
+    <!-- Container Corpo -->
+    <div class="ui-g-12 ui-md-8 ui-g-nopad">
+    	<!-- Barra -->
         <div class="ui-g-12 ui-g-nopad" style="background-color: green">
-          <ui:insert name="barra">
-	        	<ui:include src="/restrito/barra.xhtml"/>  
-	        </ui:insert> 
+           	<ui:include src="/restrito/barra.xhtml"/>   
         </div>
+        <!-- Barra -->
         
+        <!-- Corpo da Pagina -->
         <div class="ui-g-12 ui-g-nopad" style="background-color: gray">
 	        <ui:insert name="corpo">
 	        	Corpo    
 	        </ui:insert>
         </div>
+        <!-- Corpo da Pagina -->
+        
+        
     </div>
     
+	    <!-- Barra Lateral direita -->
+	    <div class="ui-g-12 ui-md-2 ui-g-nopad"  style="background-color: gainsboro">
+			<ui:include src="/restrito/barra-lateral.xhtml"/> 		
+	    </div>
+	    <!-- Barra Lateral direita -->
+	    
+    <!-- Container -->
     <div class="ui-g-12 ui-g-nopad">       
 		<ui:include src="/publico/rodape.xhtml"/> 
 	</div>
-
-</h:body>
 </div>
+</h:body>
 </html>
