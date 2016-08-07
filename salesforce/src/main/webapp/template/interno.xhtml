@@ -19,27 +19,27 @@
 <h:body>
 <div class="ui-fluid" id="corpo">
 	<!-- Topo -->
-	<div class="ui-g-12 ui-md-12 ui-g-nopad">       
+	<div class="ui-g-12 ui-lg-12 ui-g-nopad">       
 		<ui:include src="/publico/topo.xhtml"/> 
 	</div>
 	<!-- Topo -->
 	
 	<!-- Menu -->
-    <div class="ui-g-12 ui-md-2 ui-g-nopad">
+    <div class="ui-g-12 ui-lg-2 ui-md-3  ui-g-nopad">
 		<ui:include src="/restrito/menu.xhtml"/> 		
     </div>
     <!-- Menu -->
     
     <!-- Container Corpo -->
-    <div class="ui-g-12 ui-md-8 ui-g-nopad">
+    <div class="ui-g-12 ui-lg-8 ui-md-9 ui-g-nopad">
     	<!-- Barra -->
-        <div class="ui-g-12 ui-g-nopad" style="background-color: green">
+        <div class="ui-g-12 ui-lg-12 ui-g-nopad" style="background-color: green">
            	<ui:include src="/restrito/barra.xhtml"/>   
         </div>
         <!-- Barra -->
         
         <!-- Corpo da Pagina -->
-        <div class="ui-g-12 ui-g-nopad" style="background-color: gray">
+        <div class="ui-g-12 ui-lg-12 ui-g-nopad" style="background-color: gray">
 	        <ui:insert name="corpo">
 	        	Corpo    
 	        </ui:insert>
@@ -50,13 +50,13 @@
     </div>
     
 	    <!-- Barra Lateral direita -->
-	    <div class="ui-g-12 ui-md-2 ui-g-nopad"  style="background-color: gainsboro">
+	    <div class="ui-g-12 ui-lg-2 ui-g-nopad"  style="background-color: gainsboro">
 			<ui:include src="/restrito/barra-lateral.xhtml"/> 		
 	    </div>
 	    <!-- Barra Lateral direita -->
 	    
     <!-- Container -->
-    <div class="ui-g-12 ui-g-nopad">       
+    <div class="ui-g-12 ui-lg-12 ui-g-nopad">       
 		<ui:include src="/publico/rodape.xhtml"/> 
 	</div>
 </div>
