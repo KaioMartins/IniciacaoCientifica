@@ -6,9 +6,27 @@
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition>
 	<div id="menu">
-			Menu incluido <br/><br/>
+			<h:form>
+
+			<p:menu toggleable="true">
+				<p:submenu label="File">
+					<p:menuitem value="Save" url="#" icon="ui-icon-disk" />
+					<p:menuitem value="Update" url="#" icon="ui-icon-arrowrefresh-1-w" />
+				</p:submenu>
+				<p:submenu label="Edit">
+					<p:menuitem value="Delete" url="#" icon="ui-icon-close" />
+				</p:submenu>
+				<p:submenu label="View">
+					<p:menuitem value="External" url="http://www.primefaces.org"
+						icon="ui-icon-home" />
+					<p:menuitem value="Internal" icon="ui-icon-star" />
+				</p:submenu>
+			</p:menu>
+
+		</h:form>
+	</div>
 			
-		</div>
+	
 		
 </ui:composition>
 </html>
