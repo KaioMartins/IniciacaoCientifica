@@ -6,26 +6,24 @@
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition>
 	<div id="menu">
-			<h:form>
+		<h:form>
 
 			<p:menu toggleable="true">
-				<p:submenu label="Home">
-					<p:menuitem value="Página Inicial" url="#" icon="fa fa-home fa-fw" />
+				<p:submenu label="Menu">
+					<p:menuitem value="Página Inicial" url="/" icon="fa fa-home fa-fw" />
 				</p:submenu>
-				<p:submenu label="Diário do Vendedor">
-					<p:menuitem value="Cadastrar Visita &lt;br /&gt; ou Venda" url="#" icon="fa fa-file-text-o fa-fw" escape="false"/>
+				<p:submenu label="Área do Vendedor">
+					<p:menuitem value="Venda" url="/restrito/cad_venda.jsf"
+						icon="fa fa-file-text-o fa-fw" />
 				</p:submenu>
 				<p:submenu label="Administração">
-					<p:menuitem value="Funcionários" url="#" icon="fa fa-users fa-fw" />
-					<p:menuitem value="Clientes" icon="fa fa-users fa-fw" />
-					<p:menuitem value="Produtos" icon="fa fa-list fa-fw" />
+					<p:menuitem value="Funcionários" url="/admin/funcionario.jsf" icon="fa fa-users fa-fw" />
+					<p:menuitem value="Clientes" url="/admin/cliente.jsf" icon="fa fa-users fa-fw" />
+					<p:menuitem value="Produtos" url="/admin/produto.jsf" icon="fa fa-list fa-fw" />
 				</p:submenu>
 			</p:menu>
 
 		</h:form>
 	</div>
-			
-	
-		
 </ui:composition>
 </html>
