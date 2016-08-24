@@ -1,4 +1,4 @@
-package br.com.kaiomartins.salesforce.usuario;
+package br.com.kaiomartins.salesforce.funcionario;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import br.com.kaiomartins.salesforce.pessoa.Pessoa;
 
 @Entity
-public class Usuario extends Pessoa implements Serializable {
+public class Funcionario extends Pessoa implements Serializable {
 	/**
 	 * 
 	 */
@@ -65,7 +65,7 @@ public class Usuario extends Pessoa implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		Funcionario other = (Funcionario) obj;
 		if (cargo == null) {
 			if (other.cargo != null)
 				return false;

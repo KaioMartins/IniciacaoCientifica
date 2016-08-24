@@ -1,11 +1,11 @@
 package br.com.kaiomartins.salesforce.util;
 
-import br.com.kaiomartins.salesforce.usuario.UsuarioDAO;
-import br.com.kaiomartins.salesforce.usuario.UsuarioDAOHibernate;
+import br.com.kaiomartins.salesforce.funcionario.FuncionarioDAO;
+import br.com.kaiomartins.salesforce.funcionario.FuncionarioDAOHibernate;
 
 public class DAOFactory {
-	public static UsuarioDAO criarUsuarioDAO() {
-		UsuarioDAOHibernate usuarioDAO = new UsuarioDAOHibernate();
+	public static FuncionarioDAO criarUsuarioDAO() {
+		FuncionarioDAOHibernate usuarioDAO = new FuncionarioDAOHibernate();
 		usuarioDAO.setSession(HibernateUtil.getSessionFactory().getCurrentSession());
 		return usuarioDAO;
 	}

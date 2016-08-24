@@ -2,8 +2,8 @@ package br.com.kaiomartins.salesforce.teste;
 
 import org.hibernate.Session;
 
-import br.com.kaiomartins.salesforce.usuario.Usuario;
-import br.com.kaiomartins.salesforce.usuario.UsuarioRN;
+import br.com.kaiomartins.salesforce.funcionario.Funcionario;
+import br.com.kaiomartins.salesforce.funcionario.FuncionarioRN;
 
 public class UsuarioCrud {
 
@@ -18,8 +18,8 @@ public class UsuarioCrud {
 	}
 
 	public static void main(String[] args) {
-		UsuarioRN usuarioRN = new UsuarioRN();
-		Usuario usuario = new Usuario();
+		FuncionarioRN usuarioRN = new FuncionarioRN();
+		Funcionario usuario = new Funcionario();
 
 		try {
 
