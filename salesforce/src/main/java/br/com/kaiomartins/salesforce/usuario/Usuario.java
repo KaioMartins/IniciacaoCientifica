@@ -12,10 +12,37 @@ public class Usuario extends Pessoa implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -274854337533806638L;
-	private int funcStatus;
+	private int status;
 	private String cargo;
 	private float salario;
 	private float comissao;
+	@org.hibernate.annotations.NaturalId
+	private String login;
+	private String senha;
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	@Override
 	public int hashCode() {
@@ -23,8 +50,10 @@ public class Usuario extends Pessoa implements Serializable {
 		int result = super.hashCode();
 		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
 		result = prime * result + Float.floatToIntBits(comissao);
-		result = prime * result + funcStatus;
+		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + Float.floatToIntBits(salario);
+		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
+		result = prime * result + status;
 		return result;
 	}
 
@@ -44,19 +73,29 @@ public class Usuario extends Pessoa implements Serializable {
 			return false;
 		if (Float.floatToIntBits(comissao) != Float.floatToIntBits(other.comissao))
 			return false;
-		if (funcStatus != other.funcStatus)
+		if (login == null) {
+			if (other.login != null)
+				return false;
+		} else if (!login.equals(other.login))
 			return false;
 		if (Float.floatToIntBits(salario) != Float.floatToIntBits(other.salario))
+			return false;
+		if (senha == null) {
+			if (other.senha != null)
+				return false;
+		} else if (!senha.equals(other.senha))
+			return false;
+		if (status != other.status)
 			return false;
 		return true;
 	}
 
 	public int getFuncStatus() {
-		return funcStatus;
+		return status;
 	}
 
 	public void setFuncStatus(int funcStatus) {
-		this.funcStatus = funcStatus;
+		this.status = funcStatus;
 	}
 
 	public String getCargo() {

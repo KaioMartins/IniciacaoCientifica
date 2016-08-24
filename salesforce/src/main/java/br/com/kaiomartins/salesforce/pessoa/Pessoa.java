@@ -23,7 +23,7 @@ public abstract class Pessoa implements Serializable {
 	private String telefone;
 	private String celular;
 	private String email;
-	private String login;
+
 
 	@Override
 	public int hashCode() {
@@ -34,7 +34,6 @@ public abstract class Pessoa implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result + idPessoa;
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
@@ -70,11 +69,6 @@ public abstract class Pessoa implements Serializable {
 		} else if (!endereco.equals(other.endereco))
 			return false;
 		if (idPessoa != other.idPessoa)
-			return false;
-		if (login == null) {
-			if (other.login != null)
-				return false;
-		} else if (!login.equals(other.login))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
@@ -145,12 +139,5 @@ public abstract class Pessoa implements Serializable {
 		this.email = email;
 	}
 
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
 
 }

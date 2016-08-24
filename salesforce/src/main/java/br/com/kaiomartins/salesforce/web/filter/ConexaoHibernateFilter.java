@@ -32,6 +32,9 @@ public class ConexaoHibernateFilter implements Filter {
 			transaction = currentSession.beginTransaction();
 			chain.doFilter(servletRequest, servletResponse);
 			transaction.commit();
+			if (currentSession.isOpen()) {
+				currentSession.close();
+			}
 		} catch (Throwable ex) {
 			try {
 				if (transaction.isActive()) {

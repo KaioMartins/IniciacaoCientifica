@@ -13,12 +13,8 @@ public class UsuarioDAOHibernate implements UsuarioDAO {
 		this.session = session;
 	}
 
-	public Session getSession() {
-		return session;
-	}
-
 	public void salvar(Usuario usuario) {
-
+		session.beginTransaction();
 		this.session.saveOrUpdate(usuario);
 
 	}
