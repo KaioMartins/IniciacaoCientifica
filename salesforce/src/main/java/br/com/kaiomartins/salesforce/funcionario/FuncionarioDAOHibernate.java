@@ -14,9 +14,7 @@ public class FuncionarioDAOHibernate implements FuncionarioDAO {
 	}
 
 	public void salvar(Funcionario funcionario) {
-		session.beginTransaction();
 		this.session.saveOrUpdate(funcionario);
-
 	}
 
 	public void excluir(Funcionario funcionario) {

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Cadastro de Funcionários</title>
+</h:head>	
+<h:body>
+	<h1>Cadastro de Funcionários</h1>
+	<h:form id="cadastro">
+		<h:messages />
+		<h:inputHidden value="#{funcionarioBean.funcionario.idPessoa}" />
+		<h:inputHidden value="#{funcionarioBean.funcionario.status}" />
+		
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome" for="nome" />
+			<h:inputText id="nome" value="#{funcionarioBean.funcionario.nome}" size="30"
+				maxlength="30" required="true" requiredMessage="Digite um nome !">
+				<f:validateLength minimum="10" maximum="30"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Endereço" for="endereco" />
+			<h:inputText id="endereco" value="#{funcionarioBean.funcionario.endereco}" size="50"/>
+			
+			<h:outputLabel value="Cidade" for="cidade" />
+			<h:inputText value="#{funcionarioBean.funcionario.cidade}" id="cidade" />
+			
+			<h:outputLabel value="Data de Nascimento" for="nascimento" />
+			<h:inputText id="nascimento" value="#{funcionarioBean.funcionario.nascimento}" size="10"
+				maxlength="10">
+				<f:convertDateTime dateStyle="medium"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Celular" for="celular" />
+			<h:inputText id="celular" value="#{funcionarioBean.funcionario.celular}" />
+			
+			<h:outputLabel value="Telefone" for="telefone" />
+			<h:inputText id="telefone" value="#{funcionarioBean.funcionario.telefone}" />
+			
+			<h:outputLabel value="Email" for="email" />
+			<h:inputText value="#{funcionarioBean.funcionario.email}" id="email" />
+			
+			<h:outputLabel value="Cargo" for="cargo" />
+			<h:inputText value="#{funcionarioBean.funcionario.cargo}" />
+			
+			<h:outputLabel value="Salario" for="salario" />
+			<h:inputText value="#{funcionarioBean.funcionario.salario}" id="salario" >
+				<f:convertNumber minFractionDigits="2"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Comissão" for="comissao" />
+			<h:inputText value="#{funcionarioBean.funcionario.comissao}" id="comissao" >
+				<f:convertNumber minFractionDigits="2"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Login" for="login" />
+			<h:inputText value="#{funcionarioBean.funcionario.login}" id="login" />
+			
+			<h:outputLabel value="Senha" for="Senha" />
+			<h:inputText value="#{funcionarioBean.funcionario.senha}" id="senha" />
+			
+		</h:panelGrid>
+		
+		<h:commandButton action="#{funcionarioBean.salvar}" value="Salvar" />
+	</h:form>
+</h:body>
+</html>

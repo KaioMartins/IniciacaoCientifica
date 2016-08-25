@@ -13,7 +13,7 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
 		
-		<mapping class="br.com.kaiomartins.salesforce.usuario.Usuario"/>
+		<mapping class="br.com.kaiomartins.salesforce.funcionario.Funcionario"/>
 		<mapping class="br.com.kaiomartins.salesforce.pessoa.Pessoa"/>
 	</session-factory>
 </hibernate-configuration>

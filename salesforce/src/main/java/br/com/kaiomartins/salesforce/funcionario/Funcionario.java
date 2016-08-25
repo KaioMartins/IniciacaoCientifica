@@ -12,19 +12,18 @@ public class Funcionario extends Pessoa implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -274854337533806638L;
-	private int status;
+	private boolean status;
 	private String cargo;
 	private float salario;
 	private float comissao;
-	@org.hibernate.annotations.NaturalId
 	private String login;
 	private String senha;
 
-	public int getStatus() {
+	public boolean isStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
@@ -53,7 +52,7 @@ public class Funcionario extends Pessoa implements Serializable {
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + Float.floatToIntBits(salario);
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
-		result = prime * result + status;
+		result = prime * result + (status ? 1231 : 1237);
 		return result;
 	}
 
@@ -90,13 +89,7 @@ public class Funcionario extends Pessoa implements Serializable {
 		return true;
 	}
 
-	public int getFuncStatus() {
-		return status;
-	}
 
-	public void setFuncStatus(int funcStatus) {
-		this.status = funcStatus;
-	}
 
 	public String getCargo() {
 		return cargo;

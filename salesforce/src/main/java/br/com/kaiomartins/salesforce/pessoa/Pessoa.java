@@ -1,6 +1,7 @@
 package br.com.kaiomartins.salesforce.pessoa;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,16 @@ public abstract class Pessoa implements Serializable {
 	private String telefone;
 	private String celular;
 	private String email;
+	private Date nascimento;
 
+
+	public Date getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(Date nascimento) {
+		this.nascimento = nascimento;
+	}
 
 	@Override
 	public int hashCode() {
@@ -34,6 +44,7 @@ public abstract class Pessoa implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result + idPessoa;
+		result = prime * result + ((nascimento == null) ? 0 : nascimento.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
@@ -69,6 +80,11 @@ public abstract class Pessoa implements Serializable {
 		} else if (!endereco.equals(other.endereco))
 			return false;
 		if (idPessoa != other.idPessoa)
+			return false;
+		if (nascimento == null) {
+			if (other.nascimento != null)
+				return false;
+		} else if (!nascimento.equals(other.nascimento))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
