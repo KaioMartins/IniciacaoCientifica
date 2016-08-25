@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:util="http://xmlns.jcp.org/jsf/composite/components/util"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/template/interno.xhtml">
+	<ui:define name="corpo">
 <h:head>
 	<title>Cadastro de Funcionários</title>
 </h:head>	
-<h:body>
+
 	<h1>Cadastro de Funcionários</h1>
 	<h:form id="cadastro">
 		<h:messages />
@@ -62,6 +67,7 @@
 		</h:panelGrid>
 		
 		<h:commandButton action="#{funcionarioBean.salvar}" value="Salvar" />
-	</h:form>
-</h:body>
+		</h:form>
+</ui:define>
+</ui:composition>
 </html>
