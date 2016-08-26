@@ -20,10 +20,7 @@ public class FuncionarioRN {
 	}
 
 	public void salvar(Funcionario funcionario) {
-		Integer idPessoa = funcionario.getIdPessoa();
-		if (idPessoa == null || idPessoa == 0) {
-			this.funcionarioDAO.salvar(funcionario);
-		}
+		this.funcionarioDAO.salvar(funcionario);
 	}
 
 	public void excluir(Funcionario funcionario) {

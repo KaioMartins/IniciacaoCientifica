@@ -14,6 +14,7 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Pessoa implements Serializable {
 
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int idPessoa;

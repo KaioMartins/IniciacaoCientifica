@@ -24,6 +24,7 @@ public class FuncionarioBean {
 	}
 
 	public String editar() {
+		this.destinoSalvar = "sucesso";
 		return "cad_funcionario";
 	}
 
@@ -76,10 +77,13 @@ public class FuncionarioBean {
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
+
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
 
-	
+	public void setLista(List<Funcionario> lista) {
+		this.lista = lista;
+	}
 
 }
