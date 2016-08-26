@@ -5,12 +5,110 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-<ui:composition template="/template/interno.xhtml">
+<ui:composition template="/template/admin.xhtml">
 	<ui:define name="corpo">
 		<h:form>
 		<h:commandButton action="#{funcionarioBean.novo}" value="Novo Funcionario" />
+		<br/>
 		
+		<h1>Funcionários cadastrados</h1>
+		<br/>
 		
+		<h:messages />
+		<h:dataTable value="#{funcionarioBean.lista}" var="funcionario" rules="rows">
+		<f:facet name="caption">
+			Lista de funcionários cadastrados no sistema.
+		</f:facet>
+		<f:facet name="header">Funcionários</f:facet>
+		<f:facet name="footer">Fim da listagem</f:facet>
+		
+		<h:column>
+			<f:facet name="header">Ativo</f:facet>
+			<h:commandButton action="#{funcionarioBean.ativar}" value="#{funcionario.ativo}" >
+				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
+			</h:commandButton>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Código</f:facet>
+			#{funcionario.idPessoa}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+			#{funcionario.nome}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Endereço</f:facet>
+			#{funcionario.endereco}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Cidade</f:facet>
+			#{funcionario.cidade}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Data Nascimento</f:facet>
+			#{funcionario.nascimento}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Celular</f:facet>
+			#{funcionario.celular}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Telefone</f:facet>
+			#{funcionario.telefone}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Email</f:facet>
+			#{funcionario.email}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Cargo</f:facet>
+			#{funcionario.cargo}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Salário</f:facet>
+			#{funcionario.salario}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Comissão</f:facet>
+			#{funcionario.comissao}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Login</f:facet>
+			#{funcionario.login}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Senha</f:facet>
+			#{funcionario.senha}
+		</h:column>
+		
+		<h:column>
+			<h:commandButton action="#{funcionarioBean.editar}" value="Editar" >
+				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
+				<f:setPropertyActionListener value="funcionario" target="#{funcionarioBean.destinoSalvar}"/>
+			</h:commandButton>
+		</h:column>
+		
+		<h:column>
+			<h:commandButton action="#{funcionarioBean.excluir}" value="Excluir"
+					onclick="if(!confirm('Excluir funcionario #{funcionario.nome}?')) return false;" >
+				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
+			</h:commandButton>
+		</h:column>
+		
+		</h:dataTable>
 		</h:form>
 	</ui:define>
 </ui:composition>

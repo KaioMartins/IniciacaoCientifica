@@ -15,9 +15,11 @@
 	<h:form id="cadastro">
 		<h:messages />
 		<h:inputHidden value="#{funcionarioBean.funcionario.idPessoa}" />
-		<h:inputHidden value="#{funcionarioBean.funcionario.status}" />
+		<h:inputHidden value="#{funcionarioBean.funcionario.ativo}" />
+		<h:inputHidden value="#{funcionarioBean.destinoSalvar}" />
 		
 		<h:panelGrid columns="2">
+		
 			<h:outputLabel value="Nome" for="nome" />
 			<h:inputText id="nome" value="#{funcionarioBean.funcionario.nome}" size="30"
 				maxlength="30" required="true" requiredMessage="Digite um nome !">
@@ -46,7 +48,7 @@
 			<h:inputText value="#{funcionarioBean.funcionario.email}" id="email" />
 			
 			<h:outputLabel value="Cargo" for="cargo" />
-			<h:inputText value="#{funcionarioBean.funcionario.cargo}" />
+			<h:inputText value="#{funcionarioBean.funcionario.cargo}" id="cargo"/>
 			
 			<h:outputLabel value="Salario" for="salario" />
 			<h:inputText value="#{funcionarioBean.funcionario.salario}" id="salario" >
@@ -61,7 +63,7 @@
 			<h:outputLabel value="Login" for="login" />
 			<h:inputText value="#{funcionarioBean.funcionario.login}" id="login" />
 			
-			<h:outputLabel value="Senha" for="Senha" />
+			<h:outputLabel value="Senha" for="senha" />
 			<h:inputText value="#{funcionarioBean.funcionario.senha}" id="senha" />
 			
 		</h:panelGrid>

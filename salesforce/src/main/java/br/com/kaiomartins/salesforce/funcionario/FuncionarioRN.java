@@ -5,32 +5,32 @@ import java.util.List;
 import br.com.kaiomartins.salesforce.util.DAOFactory;
 
 public class FuncionarioRN {
-	private FuncionarioDAO usuarioDAO;
+	private FuncionarioDAO funcionarioDAO;
 
 	public FuncionarioRN() {
-		this.usuarioDAO = DAOFactory.criarUsuarioDAO();
+		this.funcionarioDAO = DAOFactory.criarFuncionarioDAO();
 	}
 
 	public Funcionario carregar(Integer idPessoa) {
-		return this.usuarioDAO.carregar(idPessoa);
+		return this.funcionarioDAO.carregar(idPessoa);
 	}
 
 	public Funcionario buscaPorLogin(String login) {
-		return this.usuarioDAO.buscaPorLogin(login);
+		return this.funcionarioDAO.buscaPorLogin(login);
 	}
 
-	public void salvar(Funcionario usuario) {
-		Integer idPessoa = usuario.getIdPessoa();
+	public void salvar(Funcionario funcionario) {
+		Integer idPessoa = funcionario.getIdPessoa();
 		if (idPessoa == null || idPessoa == 0) {
-			this.usuarioDAO.salvar(usuario);
+			this.funcionarioDAO.salvar(funcionario);
 		}
 	}
 
-	public void excluir(Funcionario usuario) {
-		this.usuarioDAO.excluir(usuario);
+	public void excluir(Funcionario funcionario) {
+		this.funcionarioDAO.excluir(funcionario);
 	}
 
 	public List<Funcionario> listar() {
-		return this.usuarioDAO.listar();
+		return this.funcionarioDAO.listar();
 	}
 }

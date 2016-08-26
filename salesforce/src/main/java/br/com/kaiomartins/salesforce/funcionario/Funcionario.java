@@ -12,19 +12,19 @@ public class Funcionario extends Pessoa implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -274854337533806638L;
-	private boolean status;
+	private boolean ativo;
 	private String cargo;
 	private float salario;
 	private float comissao;
 	private String login;
 	private String senha;
 
-	public boolean isStatus() {
-		return status;
+	public boolean isAtivo() {
+		return ativo;
 	}
 
-	public void setStatus(boolean status) {
-		this.status = status;
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	public String getLogin() {
@@ -47,12 +47,12 @@ public class Funcionario extends Pessoa implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result + (ativo ? 1231 : 1237);
 		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
 		result = prime * result + Float.floatToIntBits(comissao);
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + Float.floatToIntBits(salario);
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
-		result = prime * result + (status ? 1231 : 1237);
 		return result;
 	}
 
@@ -65,6 +65,8 @@ public class Funcionario extends Pessoa implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Funcionario other = (Funcionario) obj;
+		if (ativo != other.ativo)
+			return false;
 		if (cargo == null) {
 			if (other.cargo != null)
 				return false;
@@ -83,8 +85,6 @@ public class Funcionario extends Pessoa implements Serializable {
 			if (other.senha != null)
 				return false;
 		} else if (!senha.equals(other.senha))
-			return false;
-		if (status != other.status)
 			return false;
 		return true;
 	}

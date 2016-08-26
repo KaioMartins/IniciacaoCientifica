@@ -4,9 +4,9 @@ import br.com.kaiomartins.salesforce.funcionario.FuncionarioDAO;
 import br.com.kaiomartins.salesforce.funcionario.FuncionarioDAOHibernate;
 
 public class DAOFactory {
-	public static FuncionarioDAO criarUsuarioDAO() {
-		FuncionarioDAOHibernate usuarioDAO = new FuncionarioDAOHibernate();
-		usuarioDAO.setSession(HibernateUtil.getSessionFactory().getCurrentSession());
-		return usuarioDAO;
+	public static FuncionarioDAO criarFuncionarioDAO() {
+		FuncionarioDAOHibernate funcionarioDAO = new FuncionarioDAOHibernate();
+		funcionarioDAO.setSession(HibernateUtil.getSessionFactory().getCurrentSession());
+		return funcionarioDAO;
 	}
 }
