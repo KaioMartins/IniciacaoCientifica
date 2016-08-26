@@ -7,7 +7,9 @@
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/template/interno.xhtml">
 	<ui:define name="corpo">
-
+		<h:form>
+			<h:commandButton action="#{clienteBean.novo}" value="Novo Cliente" />
+		</h:form>
 		
 
 	</ui:define>

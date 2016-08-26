@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:util="http://xmlns.jcp.org/jsf/composite/components/util"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/template/interno.xhtml">
+	<ui:define name="corpo">
+<h:head>
+	<title>Cadastro de Clientes</title>
+</h:head>	
+
+	<h1>Cadastro de Clientes</h1>
+	<h:form id="cadastro">
+		<h:messages />
+		<h:inputHidden value="#{clienteBean.cliente.idPessoa}" />
+		<h:inputHidden value="#{clienteBean.cliente.ativo}" />
+		<h:inputHidden value="#{clienteBean.destinoSalvar}" />
+		
+		<h:panelGrid columns="2">
+			
+			<h:outputLabel value="Nome" for="nome" />
+			<h:inputText value="#{clienteBean.cliente.nome}" id="nome" />
+			
+			<h:outputLabel value="Endereço" for="endereco" />
+			<h:inputText value="#{clienteBean.cliente.endereco}" id="endereco" />
+			
+			<h:outputLabel value="Cidade" for="cidade"/>
+			<h:inputText value="#{clienteBean.cliente.cidade}" id="cidade"/>
+			
+			<h:outputLabel value="Telefone" for="telefone" />
+			<h:inputText value="#{clienteBean.cliente.telefone}" id="telefone" />
+			
+			<h:outputLabel value="Celular" for="celular" />
+			<h:inputText value="#{clienteBean.cliente.celular}" id="celular"/>
+			
+			<h:outputLabel value="Email" for="email" />
+			<h:inputText value="#{clienteBean.cliente.email}" id="email" />
+			
+			<h:outputLabel value="Data de Nascimento" for="nascimento" />
+			<h:inputText id="nascimento" value="#{clienteBean.cliente.nascimento}">
+				<f:convertDateTime dateStyle="short"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Empresa" for="empresa" />
+			<h:inputText value="#{clienteBean.cliente.empresa}" id="empresa" />
+			
+			<h:outputLabel value="Secretária" for="secretaria" />
+			<h:inputText value="#{clienteBean.cliente.secretaria}" id="secretaria" />
+			
+			<h:outputLabel value="Localização" for="localizacao" />
+			<h:inputText value="#{clienteBean.cliente.localizacao}" id="localizacao" />
+			
+			<h:outputLabel value="Produto Vendido" for="produtovendido" />
+			<h:inputText value="#{clienteBean.cliente.produtoVendido}" id="produtovendido" />
+			
+			<h:outputLabel value="Descrição" for="descricao" />
+			<h:inputTextarea value="#{clienteBean.cliente.descricao}" id="descricao" />
+		</h:panelGrid>
+		
+		<h:commandButton action="#{clienteBean.salvar}" value="Salvar" />
+		</h:form>
+</ui:define>
+</ui:composition>
+</html>

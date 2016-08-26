@@ -46,12 +46,9 @@ public class FuncionarioBean {
 
 	public String ativar() {
 		if (this.funcionario.isAtivo()) {
-
 			this.funcionario.setAtivo(false);
-
 		} else {
 			this.funcionario.setAtivo(true);
-
 		}
 		FuncionarioRN funcionarioRN = new FuncionarioRN();
 		funcionarioRN.salvar(this.funcionario);

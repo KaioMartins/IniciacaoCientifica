@@ -16,7 +16,7 @@ public class Cliente extends Pessoa implements Serializable {
 	private String produtoVendido;
 	private String secretaria;
 	private String empresa;
-	private int cliStatus;
+	private boolean ativo;
 	private String localizacao;
 
 	public String getDescricao() {
@@ -51,13 +51,7 @@ public class Cliente extends Pessoa implements Serializable {
 		this.empresa = empresa;
 	}
 
-	public int getCliStatus() {
-		return cliStatus;
-	}
 
-	public void setCliStatus(int cliStatus) {
-		this.cliStatus = cliStatus;
-	}
 
 	public String getLocalizacao() {
 		return localizacao;
@@ -75,7 +69,7 @@ public class Cliente extends Pessoa implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + cliStatus;
+		result = prime * result + (ativo ? 1231 : 1237);
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((empresa == null) ? 0 : empresa.hashCode());
 		result = prime * result + ((localizacao == null) ? 0 : localizacao.hashCode());
@@ -93,7 +87,7 @@ public class Cliente extends Pessoa implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Cliente other = (Cliente) obj;
-		if (cliStatus != other.cliStatus)
+		if (ativo != other.ativo)
 			return false;
 		if (descricao == null) {
 			if (other.descricao != null)
@@ -121,6 +115,14 @@ public class Cliente extends Pessoa implements Serializable {
 		} else if (!secretaria.equals(other.secretaria))
 			return false;
 		return true;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 }
