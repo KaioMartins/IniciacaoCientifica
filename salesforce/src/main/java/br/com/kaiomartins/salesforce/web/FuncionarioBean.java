@@ -17,14 +17,14 @@ public class FuncionarioBean {
 	private String destinoSalvar;
 
 	public String novo() {
-		this.destinoSalvar = "sucesso";
+		this.destinoSalvar = "funcionariosucesso";
 		this.funcionario = new Funcionario();
 		this.funcionario.setAtivo(true);
 		return "cad_funcionario";
 	}
 
 	public String editar() {
-		this.destinoSalvar = "sucesso";
+		this.destinoSalvar = "funcionariosucesso";
 		return "cad_funcionario";
 	}
 

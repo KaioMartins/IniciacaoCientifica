@@ -14,22 +14,16 @@ public class ClienteBean {
 	private Cliente cliente = new Cliente();
 	private List<Cliente> lista;
 	private String destinoSalvar;
-	private String tabelaDados;
 
-	public String retornar() {
-		return this.tabelaDados;
-	}
 
 	public String novo() {
-
-		this.destinoSalvar = "sucesso";
+		this.destinoSalvar = "clientesucesso";
 		this.cliente = new Cliente();
 		this.cliente.setAtivo(true);
 		return "cad_cliente";
 	}
 
 	public String salvar() {
-		this.tabelaDados = "cliente";
 		ClienteRN clienteRN = new ClienteRN();
 		clienteRN.salvar(this.cliente);
 		return this.destinoSalvar;
@@ -37,7 +31,7 @@ public class ClienteBean {
 	}
 
 	public String editar() {
-		this.destinoSalvar = "cliente";
+		this.destinoSalvar = "clientesucesso";
 		return "cad_cliente";
 	}
 
@@ -72,11 +66,5 @@ public class ClienteBean {
 		this.destinoSalvar = destinoSalvar;
 	}
 
-	public String getTabelaDados() {
-		return tabelaDados;
-	}
 
-	public void setTabelaDados(String tabelaDados) {
-		this.tabelaDados = tabelaDados;
-	}
 }
