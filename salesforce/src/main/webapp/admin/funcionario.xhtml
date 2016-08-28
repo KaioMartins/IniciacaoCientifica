@@ -5,112 +5,115 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
+   
 <ui:composition template="/template/admin.xhtml">
 	<ui:define name="corpo">
+	<div class="ui-fluid">
 		<h:form>
-		<h:commandButton action="#{funcionarioBean.novo}" value="Novo Funcionario" />
+		<p:commandButton action="#{funcionarioBean.novo}" value="Novo Funcionario" />
 		<br/>
 		
 		<h1>Funcionários cadastrados</h1>
 		<br/>
 		
-		<h:messages />
-		<h:dataTable value="#{funcionarioBean.lista}" var="funcionario" rules="rows">
+		<p:messages />
+		<p:dataTable value="#{funcionarioBean.lista}" var="funcionario" rules="rows" reflow="true"  rows="5" paginator="true">
 		<f:facet name="caption">
 			Lista de funcionários cadastrados no sistema.
 		</f:facet>
 		<f:facet name="header">Funcionários</f:facet>
 		<f:facet name="footer">Fim da listagem</f:facet>
 		
-		<h:column>
-			<f:facet name="header">Ativo</f:facet>
-			<h:commandButton action="#{funcionarioBean.ativar}" value="#{funcionario.ativo}" >
+		<p:column headerText="Ativo">
+			
+			<p:commandButton action="#{funcionarioBean.ativar}" value="#{funcionario.ativo}">
 				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
-			</h:commandButton>
-		</h:column>
+			</p:commandButton>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Código</f:facet>
+		<p:column headerText="Código">
+			
 			#{funcionario.idPessoa}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Nome</f:facet>
+		<p:column headerText="Nome">
+			
 			#{funcionario.nome}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Endereço</f:facet>
+		<p:column headerText="Endereço">
+			
 			#{funcionario.endereco}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Cidade</f:facet>
+		<p:column headerText="Cidade">
+			
 			#{funcionario.cidade}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Data Nascimento</f:facet>
+		<p:column headerText="Data Nascimento">
+			
 			 #{funcionario.nascimento}
 			
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Celular</f:facet>
+		<p:column headerText="Celular">
+			
 			#{funcionario.celular}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Telefone</f:facet>
+		<p:column headerText="Telefone">
+			
 			#{funcionario.telefone}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Email</f:facet>
+		<p:column headerText="Email">
+			
 			#{funcionario.email}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Cargo</f:facet>
+		<p:column headerText="Cargo">
+			
 			#{funcionario.cargo}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Salário</f:facet>
+		<p:column headerText="Salário">
+			
 			#{funcionario.salario}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Comissão</f:facet>
+		<p:column headerText="Comissão">
+			
 			#{funcionario.comissao}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Login</f:facet>
+		<p:column headerText="Login">
+			
 			#{funcionario.login}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<f:facet name="header">Senha</f:facet>
+		<p:column headerText="Senha">
+			
 			#{funcionario.senha}
-		</h:column>
+		</p:column>
 		
-		<h:column>
-			<h:commandButton action="#{funcionarioBean.editar}" value="Editar" >
+		<p:column>
+			<p:commandButton action="#{funcionarioBean.editar}" value="Editar" >
 				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
 				<f:setPropertyActionListener value="funcionario" target="#{funcionarioBean.destinoSalvar}"/>
-			</h:commandButton>
-		</h:column>
+			</p:commandButton>
+		</p:column>
 		
-		<h:column>
-			<h:commandButton action="#{funcionarioBean.excluir}" value="Excluir"
+		<p:column>
+			<p:commandButton action="#{funcionarioBean.excluir}" value="Excluir"
 					onclick="if(!confirm('Excluir funcionario #{funcionario.nome}?')) return false;" >
 				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
-			</h:commandButton>
-		</h:column>
+			</p:commandButton>
+		</p:column>
 		
-		</h:dataTable>
+		</p:dataTable>
 		</h:form>
+		</div>
 	</ui:define>
 </ui:composition>
 </html>
