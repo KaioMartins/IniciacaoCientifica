@@ -34,6 +34,7 @@ public class FuncionarioBean {
 		FuncionarioRN funcionarioRN = new FuncionarioRN();
 		funcionarioRN.salvar(this.funcionario);
 
+
 		return this.destinoSalvar;
 	}
 
@@ -49,6 +50,7 @@ public class FuncionarioBean {
 			this.funcionario.setAtivo(false);
 		} else {
 			this.funcionario.setAtivo(true);
+
 		}
 		FuncionarioRN funcionarioRN = new FuncionarioRN();
 		funcionarioRN.salvar(this.funcionario);
@@ -62,6 +64,7 @@ public class FuncionarioBean {
 		}
 		return this.lista;
 	}
+
 
 	public String getDestinoSalvar() {
 		return destinoSalvar;

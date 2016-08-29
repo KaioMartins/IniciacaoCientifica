@@ -12,15 +12,16 @@
 </h:head>	
 
 <div class="ui-fluid">
-
+<p:panel>
 	<h:form id="cadastro">
-	<p:outputLabel><h1>Cadastro de Funcionários</h1></p:outputLabel>
+	
+	<h2>Cadastro de Funcionários</h2>
 		<p:messages />
 		<h:inputHidden value="#{funcionarioBean.funcionario.idPessoa}" />
 		<h:inputHidden value="#{funcionarioBean.funcionario.ativo}" />
 		<h:inputHidden value="#{funcionarioBean.destinoSalvar}" />
 		
-		<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+		<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank">
 			
 			<p:outputLabel value="Nome" for="nome" />
 			<p:inputText id="nome" value="#{funcionarioBean.funcionario.nome}" size="30"
@@ -73,6 +74,7 @@
 		
 		
 		</h:form>
+		</p:panel>
 		</div>
 		
 </ui:define>

@@ -3,3 +3,28 @@
     font-size: 90% !important;
 }
 
+/* Topo */
+#topo{
+	background-color: #4e5159;
+}
+
+#logo{
+	background-color: #039ADE;
+}
+
+#info{
+	background-color: #039ADE;
+}
+/* Topo */
+
+
+/* Rodapé */
+#rodape{
+	background-color: #4e5159;
+}
+#rodape-center{
+	background-color: #039ADE;
+}
+/* Rodapé */
+
+
