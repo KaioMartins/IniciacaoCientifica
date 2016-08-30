@@ -1,30 +1,53 @@
 @CHARSET "ISO-8859-1";
-.ui-widget, .ui-widget .ui-widget {    
-    font-size: 90% !important;
+
+.ui-widget, .ui-widget .ui-widget {
+	font-size: 90% !important;
 }
 
 /* Topo */
-#topo{
-	background-color: #4e5159;
+#topo {
+	background-color: #d5d5d5;
 }
 
-#logo{
-	background-color: #039ADE;
+#logo {
+	text-align: center;
+	margin: auto;
+	padding: 10px;
 }
 
-#info{
-	background-color: #039ADE;
+.logo-painel {
+	padding: 10px;
+}
+
+.info-painel {
+	padding: 10px;
+}
+
+#info {
+	padding: 10px;
 }
 /* Topo */
 
-
 /* Rodapé */
-#rodape{
-	background-color: #4e5159;
+#rodape {
+	background-color: #d5d5d5;
 }
-#rodape-center{
-	background-color: #039ADE;
+
+#rodape-center {
+
+	text-align: center;
+	margin: auto;
+	padding: 10px;
+}
+.rodape-center-painel{
+	
 }
 /* Rodapé */
 
 
+/* Funcionario */
+#funcionario{
+	text-align: center;
+}
+
+/* Funcionário */

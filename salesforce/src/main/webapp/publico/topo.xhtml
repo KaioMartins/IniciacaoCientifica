@@ -5,23 +5,28 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition>
+
 	<div id="topo" class="ui-g-12 ui-lg-12">
-	
-			<div id="logo" class="ui-g-12 ui-lg-2">
-				<p:outputLabel>Sales Force - Sistema de Representante Comerciais</p:outputLabel> 
-				
-			</div>
-			
-			<div id="centro" class="ui-g-12 ui-lg-6 ">
-				
-			</div>
-			
-			<div id="info" class="ui-g-12 ui-lg-4">
-				<p:outputLabel>Usuário, Bem-vindo</p:outputLabel>
-				<br/>
-			
-			</div>
+
+		<div id="logo" class="ui-g-12 ui-lg-3">
+			<p:panel styleClass="logo-painel" >
+				<p:outputLabel>
+					<h5>Sistema para Gerenciamento de Vendas para Representantes
+						Comerciais</h5>
+					<h1>Iniciação Científica</h1>
+				</p:outputLabel>
+			</p:panel>
 		</div>
-		
+
+		<div id="centro" class="ui-g-12 ui-lg-5 "></div>
+
+		<div id="info" class="ui-g-12 ui-lg-4">
+			<p:panel styleClass="info-painel">
+				<p:outputLabel>Usuário, Bem-vindo</p:outputLabel>
+			</p:panel>
+		</div>
+
+	</div>
+
 </ui:composition>
 </html>

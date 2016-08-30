@@ -9,14 +9,29 @@
 <ui:composition template="/template/admin.xhtml">
 	<ui:define name="corpo">
 	
-	<div class="ui-fluid">
+	<div class="ui-fluid" id="funcionario">
 	<p:panel>
 		<h:form>
 		
 		<br/>
 		
 		<h2>Funcionários cadastrados</h2>
-		<p:commandButton action="#{funcionarioBean.novo}" value="Novo Funcionario" />
+		
+		<p:panel styleClass="painel-pesquisa-func">
+		<h:form>
+		<p:panelGrid columns="2" columnClasses="ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+			<p:outputLabel for="pesquisa" >
+				<p><p:outputLabel><h2>Pesquisar Funcionário:</h2></p:outputLabel></p>
+			</p:outputLabel>
+			<p:inputText id="pesquisa" requiredMessage="Digite um item para pesquisa !">
+				
+			</p:inputText>
+			<p:commandButton action="#{funcionarioBean.novo}" value="Novo Funcionario" />
+			<p:commandButton value="Pesquisar Funcionario" />
+		</p:panelGrid>
+		</h:form>
+		</p:panel>
+		
 		<br/>
 		
 		<p:messages />
@@ -55,11 +70,7 @@
 			#{funcionario.cidade}
 		</p:column>
 		
-		<p:column headerText="Data Nascimento">
-			
-			 #{funcionario.nascimento}
-			
-		</p:column>
+		
 		
 		<p:column headerText="Celular">
 			
@@ -90,14 +101,7 @@
 			#{funcionario.comissao}
 		</p:column>
 		
-		<p:column headerText="Login">
-			#{funcionario.login}
-		</p:column>
-		
-		<p:column headerText="Senha">
-			#{funcionario.senha}
-		</p:column>
-		
+			
 		<p:column>
 			<p:commandLink action="#{funcionarioBean.editar}" >
 				<i class="fa fa-pencil" aria-hidden="true"/>
