@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:util="http://xmlns.jcp.org/jsf/composite/components/util"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
@@ -12,30 +11,37 @@
 	<div class="ui-fluid" id="funcionario">
 	<p:panel>
 		<h:form>
-		
-		<br/>
-		
-		<h2>Funcionários cadastrados</h2>
-		
-		<p:panel styleClass="painel-pesquisa-func">
-		<h:form>
-		<p:panelGrid columns="2" columnClasses="ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
-			<p:outputLabel for="pesquisa" >
-				<p><p:outputLabel><h2>Pesquisar Funcionário:</h2></p:outputLabel></p>
-			</p:outputLabel>
-			<p:inputText id="pesquisa" requiredMessage="Digite um item para pesquisa !">
-				
-			</p:inputText>
-			<p:commandButton action="#{funcionarioBean.novo}" value="Novo Funcionario" />
-			<p:commandButton value="Pesquisar Funcionario" />
-		</p:panelGrid>
-		</h:form>
-		</p:panel>
-		
-		<br/>
-		
-		<p:messages />
-		<p:dataTable value="#{funcionarioBean.lista}" var="funcionario" rules="rows" reflow="true"  rows="5" paginator="true">
+					<h2>Funcionários cadastrados no Sistema</h2>
+					<div class="ui-g-12">
+						<p:panel styleClass="painel-pesquisa-func">
+							<h:form>
+								<p:panelGrid columns="2"
+									columnClasses="ui-grid-col-3,ui-grid-col-3" layout="grid"
+									styleClass="ui-panelgrid-blank">
+									<p:outputLabel for="pesquisa">
+										<p>
+											<p:outputLabel>
+												<h2>Pesquisar Funcionário:</h2>
+											</p:outputLabel>
+										</p>
+									</p:outputLabel>
+									<p:inputText id="pesquisa"
+										requiredMessage="Digite um item para pesquisa !">
+
+									</p:inputText>
+									<p:commandButton value="Pesquisar Funcionario" />
+									<p:commandButton action="#{funcionarioBean.novo}"
+										value="Novo Funcionario" />
+									
+								</p:panelGrid>
+							</h:form>
+						</p:panel>
+					</div>
+
+	</h:form>
+	<h:form>
+					<p:messages />
+		<p:dataTable value="#{funcionarioBean.lista}" var="funcionario" reflow="true">
 		<f:facet name="caption">
 			Lista de funcionários cadastrados no sistema.
 		</f:facet>
@@ -44,9 +50,11 @@
 		
 		<p:column headerText="Ativo">
 			
-			<p:commandButton action="#{funcionarioBean.ativar}" value="#{funcionario.ativo}">
-				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
-			</p:commandButton>
+			<p:commandButton action="#{funcionarioBean.ativar}"
+						value="#{funcionario.ativo}" ajax="false">
+						<f:setPropertyActionListener value="#{funcionario}"
+							target="#{funcionarioBean.funcionario}" />
+					</p:commandButton>
 
 		</p:column>
 		
@@ -103,14 +111,14 @@
 		
 			
 		<p:column>
-			<p:commandLink action="#{funcionarioBean.editar}" >
+			<p:commandLink action="#{funcionarioBean.editar}" ajax="false">
 				<i class="fa fa-pencil" aria-hidden="true"/>
 				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
-				<f:setPropertyActionListener value="funcionario" target="#{funcionarioBean.destinoSalvar}"/>
+				<f:setPropertyActionListener value="cad_funcionario" target="#{funcionarioBean.destinoSalvar}"/>
 			</p:commandLink>
 
 			<p:commandLink action="#{funcionarioBean.excluir}"
-					onclick="if(!confirm('Excluir funcionario #{funcionario.nome}?')) return false;" >
+					onclick="if(!confirm('Excluir funcionario #{funcionario.nome}?')) return false;" ajax="false">
 					<i class="fa fa-trash" aria-hidden="true"/>
 					
 				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>

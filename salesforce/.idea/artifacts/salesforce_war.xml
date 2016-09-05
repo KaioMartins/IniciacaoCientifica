@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="salesforce:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="salesforce-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="salesforce:war exploded" />
+    </root>
+  </artifact>
+</component>

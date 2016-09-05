@@ -1,16 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:util="http://xmlns.jcp.org/jsf/composite/components/util"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/template/admin.xhtml">
 	<ui:define name="corpo">
-		<h:form>
-			<h:commandButton action="#{clienteBean.novo}" value="Novo Cliente" />
-		</h:form>
+	<div class="ui-fluid" id="cliente">
+		<p:panel>
+			<h:form>
+
+				<h2>Clientes cadastrados no Sistema</h2>
+				<div class="ui-fluid">
+							
+					<p:panel styleClass="painel-pesquisa-cliente">
+					
+						<h:form>
+							<p:panelGrid columns="2"
+								columnClasses="ui-grid-col-3,ui-grid-col-3" layout="grid"
+								styleClass="ui-panelgrid-blank">
+								<p:outputLabel for="pesquisa">
+									<p>
+										<p:outputLabel>
+											<h2>Pesquisar Cliente:</h2>
+										</p:outputLabel>
+									</p>
+								</p:outputLabel>
+								<p:inputText id="pesquisa"
+									requiredMessage="Digite um item para pesquisa !">
+
+								</p:inputText>
+								<p:commandButton action="#{clienteBean.novo}"
+									value="Novo Cliente" />
+								<p:commandButton value="Pesquisar Cliente" />
+							</p:panelGrid>
+						</h:form>
+						
+					</p:panel>
+					
+					
+				</div>
+				
+				</h:form>
+				
+				<h:form>
+				<p:messages/>
+				
+				<p:dataTable value="#{clienteBean.lista}" var="cliente" rules="rows"
+				 reflow="true"	rows="5" paginator="true">
+				<f:facet name="caption">
+					Lista de Clientes cadastrados no sistema.
+				</f:facet>
+				<f:facet name="header">Clientes</f:facet>
+				<f:facet name="footer">Fim da listagem</f:facet>
+				
+				<p:column headerText="Ativo" styleClass="cliente-coluna">
+					<p:commandLink action="#{clienteBean.ativar}" ajax="false" rendered="#{cliente.ativo == true}">
+						<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
+						<f:setPropertyActionListener value="#{cliente}" target="#{clienteBean.cliente}"/>
+					</p:commandLink>
+					
+					<p:commandLink action="#{clienteBean.ativar}" ajax="false" rendered="#{cliente.ativo == false}">
+						<i class="fa fa-ban fa-lg" aria-hidden="true"></i>
+						<f:setPropertyActionListener value="#{cliente}" target="#{clienteBean.cliente}"/>
+					</p:commandLink>					
+				</p:column>
+				
+				<p:column headerText="Código">
+					#{cliente.idPessoa}
+				</p:column>
+				
+				<p:column headerText="Nome">
+					#{cliente.nome}
+				</p:column>
+				
+				<p:column headerText="Endereço">
+					#{cliente.endereco}
+				</p:column>
+				
+				<p:column headerText="Cidade">
+					#{cliente.cidade}
+				</p:column>
+				
+				<p:column headerText="Celular">
+					#{cliente.celular}
+				</p:column>
+				
+				<p:column headerText="Telefone">
+					#{cliente.telefone}
+				</p:column>
+				
+				<p:column headerText="Ações" styleClass="cliente-coluna">
+					<p:commandLink action="#{clienteBean.editar}" ajax="false">
+						<i class="fa fa-pencil fa-lg" aria-hidden="true"/>
+						<f:setPropertyActionListener value="#{cliente}" target="#{clienteBean.cliente}"/>
+						<f:setPropertyActionListener value="/cad_cliente" target="#{clienteBean.destinoSalvar}"/>
+					</p:commandLink>
+					
+					<p:commandLink action="#{clienteBean.excluir}"
+						onclick="if(!confirm('Excluir cliente #{cliente.nome}?')) return false;" ajax="false">
+						<i class="fa fa-trash fa-lg" aria-hidden="true"/>
+						<f:setPropertyActionListener value="#{cliente}" target="#{clienteBean.cliente}"/>
+					</p:commandLink>
+				</p:column>
+				
+				</p:dataTable>
+
+			</h:form>
+			</p:panel>
+			</div>
 		
+		
+
 
 	</ui:define>
 </ui:composition>

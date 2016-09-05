@@ -42,6 +42,17 @@ public class ClienteBean {
 		return null;
 	}
 
+	public String ativar() {
+		if (this.cliente.isAtivo()) {
+			this.cliente.setAtivo(false);
+		} else {
+			this.cliente.setAtivo(true);
+		}
+		ClienteRN clienteRN = new ClienteRN();
+		clienteRN.salvar(this.cliente);
+		return null;
+	}
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -51,6 +62,10 @@ public class ClienteBean {
 	}
 
 	public List<Cliente> getLista() {
+		if (this.lista == null) {
+			ClienteRN clienteRN = new ClienteRN();
+			this.lista = clienteRN.listar();
+		}
 		return lista;
 	}
 

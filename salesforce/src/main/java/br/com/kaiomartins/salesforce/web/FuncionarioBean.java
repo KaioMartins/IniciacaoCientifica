@@ -34,7 +34,6 @@ public class FuncionarioBean {
 		FuncionarioRN funcionarioRN = new FuncionarioRN();
 		funcionarioRN.salvar(this.funcionario);
 
-
 		return this.destinoSalvar;
 	}
 
@@ -64,7 +63,6 @@ public class FuncionarioBean {
 		}
 		return this.lista;
 	}
-
 
 	public String getDestinoSalvar() {
 		return destinoSalvar;
