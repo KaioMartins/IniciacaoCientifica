@@ -30,9 +30,10 @@
 									requiredMessage="Digite um item para pesquisa !">
 
 								</p:inputText>
+								<p:commandButton value="Pesquisar Cliente" />
 								<p:commandButton action="#{clienteBean.novo}"
 									value="Novo Cliente" />
-								<p:commandButton value="Pesquisar Cliente" />
+								
 							</p:panelGrid>
 						</h:form>
 						
@@ -43,7 +44,7 @@
 				
 				</h:form>
 				
-				<h:form>
+				<h:form styleClass="data-table">
 				<p:messages/>
 				
 				<p:dataTable value="#{clienteBean.lista}" var="cliente" rules="rows"
@@ -94,7 +95,7 @@
 					<p:commandLink action="#{clienteBean.editar}" ajax="false">
 						<i class="fa fa-pencil fa-lg" aria-hidden="true"/>
 						<f:setPropertyActionListener value="#{cliente}" target="#{clienteBean.cliente}"/>
-						<f:setPropertyActionListener value="/cad_cliente" target="#{clienteBean.destinoSalvar}"/>
+						<f:setPropertyActionListener value="cad_cliente" target="#{clienteBean.destinoSalvar}"/>
 					</p:commandLink>
 					
 					<p:commandLink action="#{clienteBean.excluir}"

@@ -8,16 +8,18 @@
 <ui:composition template="/template/admin.xhtml">
 	<ui:define name="corpo">
 
-		<p:panel>
-		<h:form>
-		
-		<h3>Cadastro Efetuado com Sucesso !</h3>
-		<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank">
-			<p:commandButton action="funcionario" value="Voltar para lista de Funcionários" />
-		</p:panelGrid>
-		</h:form>
-		</p:panel>
 
+		<p:panel>
+			<h:form>
+
+				<h3>Cadastro Efetuado com Sucesso !</h3>
+				<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-4"
+					layout="grid" styleClass="ui-panelgrid-blank">
+					<p:commandButton action="funcionario"
+						value="Voltar para lista de Funcionários" />
+				</p:panelGrid>
+			</h:form>
+		</p:panel>
 	</ui:define>
 </ui:composition>
 </html>

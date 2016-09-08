@@ -4,12 +4,32 @@
 	font-size: 90% !important;
 }
 
+.ui-datatable, .ui-datatable-data {
+	font-size: 90% !important;
+	text-align: center;
+}
+
+.ui-datatable {
+	display: table;
+}
+
+.ui-datatable table {
+	table-layout: auto !important;
+}
+
+
 /* Topo */
 #topo {
 	background-color: #d5d5d5;
 }
 
 #logo {
+	text-align: center;
+	margin: auto;
+	padding: 10px;
+}
+
+#centro {
 	text-align: center;
 	margin: auto;
 	padding: 10px;
@@ -33,33 +53,39 @@
 	background-color: #d5d5d5;
 }
 
-#rodape-center {
 
+#rodape-center {
 	text-align: center;
 	margin: auto;
 	padding: 10px;
 }
-.rodape-center-painel{
+
+.rodape-center-painel {
 	
 }
 /* Rodapé */
 
-
 /* Funcionario */
-#funcionario{
+#funcionario {
 	text-align: center;
 }
 
+.funcionario-coluna {
+	text-align: center;
+	font-size: 80% !important;
+}
 /* Funcionário */
 
 /* Cliente */
-#cliente{
+#cliente {
 	text-align: center;
 }
-.cliente-coluna{
+
+.cliente-coluna {
 	text-align: center;
 }
-.painel-pesquisa-cliente{
+
+.painel-pesquisa-cliente {
 	text-align: center;
 }
 /* Cliente */

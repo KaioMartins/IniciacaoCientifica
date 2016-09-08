@@ -41,7 +41,7 @@
 	</h:form>
 	<h:form>
 					<p:messages />
-		<p:dataTable value="#{funcionarioBean.lista}" var="funcionario" reflow="true">
+		<p:dataTable value="#{funcionarioBean.lista}" var="funcionario" reflow="true" rows="5" paginator="true">
 		<f:facet name="caption">
 			Lista de funcionários cadastrados no sistema.
 		</f:facet>
@@ -49,13 +49,14 @@
 		<f:facet name="footer">Fim da listagem</f:facet>
 		
 		<p:column headerText="Ativo">
-			
-			<p:commandButton action="#{funcionarioBean.ativar}"
-						value="#{funcionario.ativo}" ajax="false">
-						<f:setPropertyActionListener value="#{funcionario}"
-							target="#{funcionarioBean.funcionario}" />
-					</p:commandButton>
-
+			<p:commandLink action="#{funcionarioBean.ativar}" ajax="false" rendered="#{funcionario.ativo == true}">
+				<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
+				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}" />
+			</p:commandLink>
+			<p:commandLink action="#{funcionarioBean.ativar}" ajax="false" rendered="#{funcionario.ativo == false}">
+				<i class="fa fa-ban fa-lg" aria-hidden="true"></i>
+				<f:setPropertyActionListener value="#{funcionario}"	target="#{funcionarioBean.funcionario}" />
+			</p:commandLink>
 		</p:column>
 		
 		<p:column headerText="Código">
@@ -80,7 +81,7 @@
 		
 		
 		
-		<p:column headerText="Celular">
+		<p:column headerText="Celular" >
 			
 			#{funcionario.celular}
 		</p:column>
@@ -90,7 +91,7 @@
 			#{funcionario.telefone}
 		</p:column>
 		
-		<p:column headerText="Email">
+		<p:column headerText="Email" >
 			
 			#{funcionario.email}
 		</p:column>
@@ -100,26 +101,26 @@
 			#{funcionario.cargo}
 		</p:column>
 		
-		<p:column headerText="Salário">
+		<p:column headerText="Salário" >
 			
 			#{funcionario.salario}
 		</p:column>
 		
-		<p:column headerText="Comissão">
+		<p:column headerText="Comissão" >
 			#{funcionario.comissao}
 		</p:column>
 		
 			
-		<p:column>
+		<p:column headerText="Ações">
 			<p:commandLink action="#{funcionarioBean.editar}" ajax="false">
-				<i class="fa fa-pencil" aria-hidden="true"/>
+				<i class="fa fa-pencil fa-lg" aria-hidden="true"/>
 				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
 				<f:setPropertyActionListener value="cad_funcionario" target="#{funcionarioBean.destinoSalvar}"/>
 			</p:commandLink>
 
 			<p:commandLink action="#{funcionarioBean.excluir}"
 					onclick="if(!confirm('Excluir funcionario #{funcionario.nome}?')) return false;" ajax="false">
-					<i class="fa fa-trash" aria-hidden="true"/>
+					<i class="fa fa-trash fa-lg" aria-hidden="true"/>
 					
 				<f:setPropertyActionListener value="#{funcionario}" target="#{funcionarioBean.funcionario}"/>
 			</p:commandLink>

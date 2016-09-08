@@ -10,57 +10,62 @@
 <h:head>
 	<title>Cadastro de Clientes</title>
 </h:head>	
+<div class="ui-fluid">
 
-	<h1>Cadastro de Clientes</h1>
+	<p:panel>
 	<h:form id="cadastro">
+	<h2>Cadastro de Clientes</h2>
 		<h:messages />
 		<h:inputHidden value="#{clienteBean.cliente.idPessoa}" />
 		<h:inputHidden value="#{clienteBean.cliente.ativo}" />
 		<h:inputHidden value="#{clienteBean.destinoSalvar}" />
 		
-		<h:panelGrid columns="2">
+		<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank">
 			
-			<h:outputLabel value="Nome" for="nome" />
-			<h:inputText value="#{clienteBean.cliente.nome}" id="nome" />
+			<p:outputLabel value="Nome" for="nome" />
+			<p:inputText value="#{clienteBean.cliente.nome}" id="nome" />
 			
-			<h:outputLabel value="Endereço" for="endereco" />
-			<h:inputText value="#{clienteBean.cliente.endereco}" id="endereco" />
+			<p:outputLabel value="Endereço" for="endereco" />
+			<p:inputText value="#{clienteBean.cliente.endereco}" id="endereco" />
 			
-			<h:outputLabel value="Cidade" for="cidade"/>
-			<h:inputText value="#{clienteBean.cliente.cidade}" id="cidade"/>
+			<p:outputLabel value="Cidade" for="cidade"/>
+			<p:inputText value="#{clienteBean.cliente.cidade}" id="cidade"/>
 			
-			<h:outputLabel value="Telefone" for="telefone" />
-			<h:inputText value="#{clienteBean.cliente.telefone}" id="telefone" />
+			<p:outputLabel value="Telefone" for="telefone" />
+			<p:inputText value="#{clienteBean.cliente.telefone}" id="telefone" />
 			
-			<h:outputLabel value="Celular" for="celular" />
-			<h:inputText value="#{clienteBean.cliente.celular}" id="celular"/>
+			<p:outputLabel value="Celular" for="celular" />
+			<p:inputText value="#{clienteBean.cliente.celular}" id="celular"/>
 			
-			<h:outputLabel value="Email" for="email" />
-			<h:inputText value="#{clienteBean.cliente.email}" id="email" />
+			<p:outputLabel value="Email" for="email" />
+			<p:inputText value="#{clienteBean.cliente.email}" id="email" />
 			
-			<h:outputLabel value="Data de Nascimento" for="nascimento" />
-			<h:inputText id="nascimento" value="#{clienteBean.cliente.nascimento}">
+			<p:outputLabel value="Data de Nascimento" for="nascimento" />
+			<p:inputText id="nascimento" value="#{clienteBean.cliente.nascimento}">
 				<f:convertDateTime dateStyle="short"/>
-			</h:inputText>
+			</p:inputText>
 			
-			<h:outputLabel value="Empresa" for="empresa" />
-			<h:inputText value="#{clienteBean.cliente.empresa}" id="empresa" />
+			<p:outputLabel value="Empresa" for="empresa" />
+			<p:inputText value="#{clienteBean.cliente.empresa}" id="empresa" />
 			
-			<h:outputLabel value="Secretária" for="secretaria" />
-			<h:inputText value="#{clienteBean.cliente.secretaria}" id="secretaria" />
+			<p:outputLabel value="Secretária" for="secretaria" />
+			<p:inputText value="#{clienteBean.cliente.secretaria}" id="secretaria" />
 			
-			<h:outputLabel value="Localização" for="localizacao" />
-			<h:inputText value="#{clienteBean.cliente.localizacao}" id="localizacao" />
+			<p:outputLabel value="Localização" for="localizacao" />
+			<p:inputText value="#{clienteBean.cliente.localizacao}" id="localizacao" />
 			
-			<h:outputLabel value="Produto Vendido" for="produtovendido" />
-			<h:inputText value="#{clienteBean.cliente.produtoVendido}" id="produtovendido" />
+			<p:outputLabel value="Produto Vendido" for="produtovendido" />
+			<p:inputText value="#{clienteBean.cliente.produtoVendido}" id="produtovendido" />
 			
-			<h:outputLabel value="Descrição" for="descricao" />
-			<h:inputTextarea value="#{clienteBean.cliente.descricao}" id="descricao" />
-		</h:panelGrid>
+			<p:outputLabel value="Descrição" for="descricao" />
+			<p:inputTextarea value="#{clienteBean.cliente.descricao}" id="descricao" />
+			<p:commandButton action="#{clienteBean.salvar}" value="Salvar" />
+		</p:panelGrid>
 		
-		<h:commandButton action="#{clienteBean.salvar}" value="Salvar" />
+		
 		</h:form>
+		</p:panel>
+</div>
 </ui:define>
 </ui:composition>
 </html>
