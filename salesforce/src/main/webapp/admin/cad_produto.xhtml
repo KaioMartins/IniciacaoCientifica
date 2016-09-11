@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:util="http://xmlns.jcp.org/jsf/composite/components/util"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/template/admin.xhtml">
+	<ui:define name="corpo">
+<h:head>
+	<title>Cadastro de Produto</title>
+</h:head>	
+<div class="ui-fluid">
+	
+	<p:panel>
+		<h:form id="cadastro">
+		<h2>Cadastro de Produtos</h2>
+			<h:messages/>
+			<h:inputHidden value="#{produtoBean.produto.idProduto}"/>
+			<h:inputHidden value="#{produtoBean.produto.ativo}"/>
+			<h:inputHidden value="#{produtoBean.destinoSalvar}"/>
+			
+			<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank">
+				<p:outputLabel value="Produto" for="produto"/>
+				<p:inputText value="#{produtoBean.produto.nome}" id="produto"/>
+				
+				<p:outputLabel value="Descrição" for="descricao"/>
+				<p:inputTextarea value="#{produtoBean.produto.descricao}" id="descricao"/>
+				
+				<p:outputLabel value="Quantidade" for="quantidade"/>
+				<p:inputNumber value="#{produtoBean.produto.quantidade}" id="quantidade"/>
+				
+				<p:commandButton action="#{produtoBean.salvar}" value="Salvar"/>
+				
+			</p:panelGrid>
+		</h:form>
+	</p:panel>
+
+
+</div>
+</ui:define>
+</ui:composition>
+</html>

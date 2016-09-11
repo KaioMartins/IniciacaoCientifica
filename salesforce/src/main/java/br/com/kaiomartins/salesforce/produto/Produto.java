@@ -20,7 +20,9 @@ public class Produto implements Serializable {
 	private String nome;
 	private String descricao;
 	private boolean ativo;
+	private int quantidade;
 	private int estoque;
+
 
 	public int getIdProduto() {
 		return idProduto;
@@ -63,6 +65,7 @@ public class Produto implements Serializable {
 		result = prime * result + estoque;
 		result = prime * result + idProduto;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + quantidade;
 		return result;
 	}
 
@@ -91,7 +94,25 @@ public class Produto implements Serializable {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
+		if (quantidade != other.quantidade)
+			return false;
 		return true;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
 }
