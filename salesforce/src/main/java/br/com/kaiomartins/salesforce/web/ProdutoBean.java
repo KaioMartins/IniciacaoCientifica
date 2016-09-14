@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import br.com.kaiomartins.salesforce.produto.Produto;
+import br.com.kaiomartins.salesforce.produto.ProdutoRN;
 
 @ManagedBean(name = "produtoBean")
 @RequestScoped
@@ -19,6 +20,12 @@ public class ProdutoBean {
 		this.produto = new Produto();
 		this.produto.setAtivo(true);
 		return "cad_produto";
+	}
+
+	public String salvar(){
+		ProdutoRN produtoRN = new ProdutoRN();
+		produtoRN.salvar(this.produto);
+		return this.destinoSalvar;
 	}
 
 	public List<Produto> getLista() {
@@ -45,5 +52,12 @@ public class ProdutoBean {
 		this.produto = produto;
 	}
 
+	public List<Produto> getListar() {
+		return lista;
+	}
+
+	public void setListar(List<Produto> lista) {
+		this.lista = lista;
+	}
 
 }

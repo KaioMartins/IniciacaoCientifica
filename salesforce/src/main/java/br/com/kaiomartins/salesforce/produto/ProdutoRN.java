@@ -16,6 +16,10 @@ public class ProdutoRN {
 	}
 
 	public void salvar(Produto produto) {
+		Integer estoque = produto.getEstoque();
+		Integer qtd = produto.getQuantidade();
+		estoque = estoque + qtd;
+
 		this.produtoDAO.salvar(produto);
 	}
 
@@ -23,7 +27,7 @@ public class ProdutoRN {
 		this.produtoDAO.excluir(produto);
 	}
 
-	public List<Produto> listar() {
+	public List<Produto> lista() {
 		return this.produtoDAO.listar();
 	}
 }
