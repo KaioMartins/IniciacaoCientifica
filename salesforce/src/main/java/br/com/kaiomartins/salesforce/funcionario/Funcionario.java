@@ -1,9 +1,17 @@
 package br.com.kaiomartins.salesforce.funcionario;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+import br.com.kaiomartins.salesforce.cliente.Cliente;
 import br.com.kaiomartins.salesforce.pessoa.Pessoa;
 
 @Entity
@@ -12,12 +20,19 @@ public class Funcionario extends Pessoa implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -274854337533806638L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int funcionarioId;
+
 	private boolean ativo;
 	private String cargo;
 	private float salario;
 	private float comissao;
 	private String login;
 	private String senha;
+
+	@OneToMany(mappedBy = "funcionario", targetEntity = Cliente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Cliente> clientes;
 
 	public boolean isAtivo() {
 		return ativo;

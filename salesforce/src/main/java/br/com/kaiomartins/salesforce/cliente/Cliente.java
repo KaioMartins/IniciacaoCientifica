@@ -3,7 +3,13 @@ package br.com.kaiomartins.salesforce.cliente;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+import br.com.kaiomartins.salesforce.funcionario.Funcionario;
 import br.com.kaiomartins.salesforce.pessoa.Pessoa;
 
 @Entity
@@ -12,12 +18,20 @@ public class Cliente extends Pessoa implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -6972081221500600357L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int clienteId;
+
 	private String descricao;
 	private String produtoVendido;
 	private String secretaria;
 	private String empresa;
 	private boolean ativo;
 	private String localizacao;
+
+	@ManyToOne
+	@JoinColumn(name = "funcionarioId")
+	private Funcionario funcionario;
 
 	public String getDescricao() {
 		return descricao;

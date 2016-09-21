@@ -4,20 +4,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Pessoa implements Serializable {
 
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private int idPessoa;
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.TABLE) private int pessoaId;
+	 */
 
 	private String nome;
 	private String endereco;
@@ -44,7 +41,6 @@ public abstract class Pessoa implements Serializable {
 		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
-		result = prime * result + idPessoa;
 		result = prime * result + ((nascimento == null) ? 0 : nascimento.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
@@ -80,8 +76,6 @@ public abstract class Pessoa implements Serializable {
 				return false;
 		} else if (!endereco.equals(other.endereco))
 			return false;
-		if (idPessoa != other.idPessoa)
-			return false;
 		if (nascimento == null) {
 			if (other.nascimento != null)
 				return false;
@@ -100,13 +94,7 @@ public abstract class Pessoa implements Serializable {
 		return true;
 	}
 
-	public int getIdPessoa() {
-		return idPessoa;
-	}
 
-	public void setIdPessoa(int idPessoa) {
-		this.idPessoa = idPessoa;
-	}
 
 	public String getNome() {
 		return nome;
