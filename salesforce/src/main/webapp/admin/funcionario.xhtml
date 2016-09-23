@@ -30,8 +30,7 @@
 
 									</p:inputText>
 									<p:commandButton value="Pesquisar Funcionario" />
-									<p:commandButton action="#{funcionarioBean.novo}"
-										value="Novo Funcionario" />
+									<p:commandButton action="#{funcionarioBean.novo}" value="Novo Funcionario" />
 									
 								</p:panelGrid>
 							</h:form>
@@ -61,7 +60,7 @@
 		
 		<p:column headerText="Código">
 			
-			#{funcionario.idPessoa}
+			#{funcionario.funcionarioId}
 		</p:column>
 		
 		<p:column headerText="Nome">

@@ -22,8 +22,8 @@ public class FuncionarioDAOHibernate implements FuncionarioDAO {
 
 	}
 
-	public Funcionario carregar(Integer idPessoa) {
-		return (Funcionario) this.session.get(Funcionario.class, idPessoa);
+	public Funcionario carregar(Integer funcionarioId) {
+		return (Funcionario) this.session.get(Funcionario.class, funcionarioId);
 	}
 
 	public List<Funcionario> listar() {

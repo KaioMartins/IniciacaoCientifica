@@ -1,29 +1,37 @@
 package br.com.kaiomartins.salesforce.funcionario;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import br.com.kaiomartins.salesforce.cliente.Cliente;
-import br.com.kaiomartins.salesforce.pessoa.Pessoa;
 
 @Entity
-public class Funcionario extends Pessoa implements Serializable {
+public class Funcionario implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -274854337533806638L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue
+	@Column(nullable = false)
 	private int funcionarioId;
 
+	private String nome;
+	private String endereco;
+	private String cidade;
+	private String telefone;
+	private String celular;
+	private String email;
+	private Date nascimento;
 	private boolean ativo;
 	private String cargo;
 	private float salario;
@@ -31,7 +39,7 @@ public class Funcionario extends Pessoa implements Serializable {
 	private String login;
 	private String senha;
 
-	@OneToMany(mappedBy = "funcionario", targetEntity = Cliente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "funcionarioId", targetEntity = Cliente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Cliente> clientes;
 
 	public boolean isAtivo() {
@@ -64,10 +72,19 @@ public class Funcionario extends Pessoa implements Serializable {
 		int result = super.hashCode();
 		result = prime * result + (ativo ? 1231 : 1237);
 		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
+		result = prime * result + ((celular == null) ? 0 : celular.hashCode());
+		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
+		result = prime * result + ((clientes == null) ? 0 : clientes.hashCode());
 		result = prime * result + Float.floatToIntBits(comissao);
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
+		result = prime * result + funcionarioId;
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
+		result = prime * result + ((nascimento == null) ? 0 : nascimento.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + Float.floatToIntBits(salario);
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
+		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
 	}
 
@@ -87,12 +104,49 @@ public class Funcionario extends Pessoa implements Serializable {
 				return false;
 		} else if (!cargo.equals(other.cargo))
 			return false;
+		if (celular == null) {
+			if (other.celular != null)
+				return false;
+		} else if (!celular.equals(other.celular))
+			return false;
+		if (cidade == null) {
+			if (other.cidade != null)
+				return false;
+		} else if (!cidade.equals(other.cidade))
+			return false;
+		if (clientes == null) {
+			if (other.clientes != null)
+				return false;
+		} else if (!clientes.equals(other.clientes))
+			return false;
 		if (Float.floatToIntBits(comissao) != Float.floatToIntBits(other.comissao))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (endereco == null) {
+			if (other.endereco != null)
+				return false;
+		} else if (!endereco.equals(other.endereco))
+			return false;
+		if (funcionarioId != other.funcionarioId)
 			return false;
 		if (login == null) {
 			if (other.login != null)
 				return false;
 		} else if (!login.equals(other.login))
+			return false;
+		if (nascimento == null) {
+			if (other.nascimento != null)
+				return false;
+		} else if (!nascimento.equals(other.nascimento))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
 			return false;
 		if (Float.floatToIntBits(salario) != Float.floatToIntBits(other.salario))
 			return false;
@@ -100,6 +154,11 @@ public class Funcionario extends Pessoa implements Serializable {
 			if (other.senha != null)
 				return false;
 		} else if (!senha.equals(other.senha))
+			return false;
+		if (telefone == null) {
+			if (other.telefone != null)
+				return false;
+		} else if (!telefone.equals(other.telefone))
 			return false;
 		return true;
 	}
@@ -128,6 +187,78 @@ public class Funcionario extends Pessoa implements Serializable {
 
 	public void setComissao(float comissao) {
 		this.comissao = comissao;
+	}
+
+	public int getFuncionarioId() {
+		return funcionarioId;
+	}
+
+	public void setFuncionarioId(int funcionarioId) {
+		this.funcionarioId = funcionarioId;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(Date nascimento) {
+		this.nascimento = nascimento;
+	}
+
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 
 }

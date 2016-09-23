@@ -11,8 +11,8 @@ public class FuncionarioRN {
 		this.funcionarioDAO = DAOFactory.criarFuncionarioDAO();
 	}
 
-	public Funcionario carregar(Integer idPessoa) {
-		return this.funcionarioDAO.carregar(idPessoa);
+	public Funcionario carregar(Integer funcionarioId) {
+		return this.funcionarioDAO.carregar(funcionarioId);
 	}
 
 	public Funcionario buscaPorLogin(String login) {

@@ -8,7 +8,7 @@ public interface FuncionarioDAO {
 
 	public void excluir(Funcionario funcionario);
 
-	public Funcionario carregar(Integer idPessoa);
+	public Funcionario carregar(Integer funcionarioId);
 
 	public Funcionario buscaPorLogin(String login);
 

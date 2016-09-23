@@ -14,7 +14,6 @@
 		
 		
 		<mapping class="br.com.kaiomartins.salesforce.funcionario.Funcionario"/>
-		<mapping class="br.com.kaiomartins.salesforce.pessoa.Pessoa"/>
 		<mapping class="br.com.kaiomartins.salesforce.cliente.Cliente"/>
 		<mapping class="br.com.kaiomartins.salesforce.produto.Produto"/>
 	</session-factory>
