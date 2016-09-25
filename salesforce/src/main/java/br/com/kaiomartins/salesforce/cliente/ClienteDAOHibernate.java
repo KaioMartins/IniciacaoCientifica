@@ -19,8 +19,8 @@ public class ClienteDAOHibernate implements ClienteDAO {
 		this.session.delete(cliente);
 	}
 
-	public Cliente carregar(Integer idPessoa) {
-		return (Cliente) this.session.get(Cliente.class, idPessoa);
+	public Cliente carregar(Integer clienteId) {
+		return (Cliente) this.session.get(Cliente.class, clienteId);
 	}
 	public List<Cliente> listar() {
 		return this.session.createCriteria(Cliente.class).list();

@@ -23,7 +23,7 @@ public class ClienteRN {
 		return this.clienteDAO.listar();
 	}
 
-	public Cliente carregar(Integer idPessoa) {
-		return this.clienteDAO.carregar(idPessoa);
+	public Cliente carregar(Integer clienteId) {
+		return this.clienteDAO.carregar(clienteId);
 	}
 }

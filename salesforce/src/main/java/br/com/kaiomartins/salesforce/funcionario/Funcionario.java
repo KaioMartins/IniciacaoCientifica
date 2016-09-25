@@ -39,7 +39,7 @@ public class Funcionario implements Serializable {
 	private String login;
 	private String senha;
 
-	@OneToMany(mappedBy = "funcionarioId", targetEntity = Cliente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "funcionario", targetEntity = Cliente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Cliente> clientes;
 
 	public boolean isAtivo() {

@@ -17,10 +17,15 @@ public class FuncionarioBean {
 	private String destinoSalvar;
 
 	public String novo() {
-		this.destinoSalvar = "funcionariosucesso";
-		this.funcionario = new Funcionario();
-		this.funcionario.setAtivo(true);
-		return "cad_funcionario";
+		try {
+			this.destinoSalvar = "funcionariosucesso";
+			this.funcionario = new Funcionario();
+			this.funcionario.setAtivo(true);
+			return "cad_funcionario";
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
+		
 	}
 
 	public String editar() {
@@ -29,12 +34,17 @@ public class FuncionarioBean {
 	}
 
 	public String salvar() {
-		FacesContext context = FacesContext.getCurrentInstance();
+		try {
+			FacesContext context = FacesContext.getCurrentInstance();
 
-		FuncionarioRN funcionarioRN = new FuncionarioRN();
-		funcionarioRN.salvar(this.funcionario);
+			FuncionarioRN funcionarioRN = new FuncionarioRN();
+			funcionarioRN.salvar(this.funcionario);
 
-		return this.destinoSalvar;
+			return this.destinoSalvar;
+
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
 	}
 
 	public String excluir() {

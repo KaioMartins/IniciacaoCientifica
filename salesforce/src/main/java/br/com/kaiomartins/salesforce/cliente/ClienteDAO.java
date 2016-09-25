@@ -7,7 +7,7 @@ public interface ClienteDAO {
 
 	public void excluir(Cliente cliente);
 
-	public Cliente carregar(Integer idPessoa);
+	public Cliente carregar(Integer clienteId);
 
 	public List<Cliente> listar();
 }
