@@ -2,7 +2,7 @@ package br.com.kaiomartins.salesforce.funcionario;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -40,7 +40,8 @@ public class Funcionario implements Serializable {
 	private String senha;
 
 	@OneToMany(mappedBy = "funcionario", targetEntity = Cliente.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Cliente> clientes;
+	private Set<Cliente> clientes = null;
+
 
 	public boolean isAtivo() {
 		return ativo;
@@ -69,7 +70,7 @@ public class Funcionario implements Serializable {
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
+		int result = 1;
 		result = prime * result + (ativo ? 1231 : 1237);
 		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
 		result = prime * result + ((celular == null) ? 0 : celular.hashCode());
@@ -92,7 +93,7 @@ public class Funcionario implements Serializable {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
+		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -253,12 +254,13 @@ public class Funcionario implements Serializable {
 		this.nascimento = nascimento;
 	}
 
-	public List<Cliente> getClientes() {
+	public Set<Cliente> getClientes() {
 		return clientes;
 	}
 
-	public void setClientes(List<Cliente> clientes) {
+	public void setClientes(Set<Cliente> clientes) {
 		this.clientes = clientes;
 	}
+
 
 }

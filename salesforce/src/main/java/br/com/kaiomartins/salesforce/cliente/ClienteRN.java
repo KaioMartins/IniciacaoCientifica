@@ -6,6 +6,7 @@ import br.com.kaiomartins.salesforce.util.DAOFactory;
 
 public class ClienteRN {
 	private ClienteDAO clienteDAO;
+	private Cliente cliente;
 
 	public ClienteRN() {
 		this.clienteDAO = DAOFactory.criarClienteDAO();
@@ -20,7 +21,9 @@ public class ClienteRN {
 	}
 
 	public List<Cliente> listar() {
+
 		return this.clienteDAO.listar();
+
 	}
 
 	public Cliente carregar(Integer clienteId) {

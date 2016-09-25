@@ -29,6 +29,11 @@
 				<f:validateLength minimum="10" maximum="30"/>
 			</p:inputText>
 			
+			<p:outputLabel value="Clientes (segure a tecla Control para selecionar mais de um)" for="cliente" />
+			<p:orderList id="cliente" value="#{funcionarioBean.listaClientes}" var="cliente"
+				controlsLocation="none" itemLabel="#{cliente.nome}" itemValue="#{cliente}" responsive="true"/>
+				
+			
 			<p:outputLabel value="Endereço" for="endereco" />
 			<p:inputText id="endereco" value="#{funcionarioBean.funcionario.endereco}" size="50"/>
 			

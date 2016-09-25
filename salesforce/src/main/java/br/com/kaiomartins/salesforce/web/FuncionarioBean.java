@@ -1,11 +1,15 @@
 package br.com.kaiomartins.salesforce.web;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import br.com.kaiomartins.salesforce.cliente.Cliente;
+import br.com.kaiomartins.salesforce.cliente.ClienteRN;
 import br.com.kaiomartins.salesforce.funcionario.Funcionario;
 import br.com.kaiomartins.salesforce.funcionario.FuncionarioRN;
 
@@ -13,8 +17,12 @@ import br.com.kaiomartins.salesforce.funcionario.FuncionarioRN;
 @RequestScoped
 public class FuncionarioBean {
 	private Funcionario funcionario = new Funcionario();
+	private Cliente cliente = new Cliente();
 	private List<Funcionario> lista;
+	private List<Cliente> listaClientes;
 	private String destinoSalvar;
+
+
 
 	public String novo() {
 		try {
@@ -37,7 +45,10 @@ public class FuncionarioBean {
 		try {
 			FacesContext context = FacesContext.getCurrentInstance();
 
+			Set<Cliente> clientes = new HashSet<>(listaClientes);
+
 			FuncionarioRN funcionarioRN = new FuncionarioRN();
+			this.funcionario.setClientes(clientes);
 			funcionarioRN.salvar(this.funcionario);
 
 			return this.destinoSalvar;
@@ -64,6 +75,14 @@ public class FuncionarioBean {
 		FuncionarioRN funcionarioRN = new FuncionarioRN();
 		funcionarioRN.salvar(this.funcionario);
 		return null;
+	}
+
+	public List<Cliente> getListaClientes() {
+		if (this.listaClientes == null) {
+			ClienteRN clienteRN = new ClienteRN();
+			this.listaClientes = clienteRN.listar();
+		}
+		return this.listaClientes;
 	}
 
 	public List<Funcionario> getLista() {
@@ -93,5 +112,12 @@ public class FuncionarioBean {
 	public void setLista(List<Funcionario> lista) {
 		this.lista = lista;
 	}
+
+
+
+	public void setListaClientes(List<Cliente> listaClientes) {
+		this.listaClientes = listaClientes;
+	}
+
 
 }

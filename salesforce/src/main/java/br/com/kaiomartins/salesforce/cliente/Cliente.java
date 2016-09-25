@@ -3,6 +3,7 @@ package br.com.kaiomartins.salesforce.cliente;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,7 +37,7 @@ public class Cliente implements Serializable {
 	private boolean ativo;
 	private String localizacao;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "funcionarioId")
 	private Funcionario funcionario;
 
